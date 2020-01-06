@@ -1,0 +1,31 @@
+.discoverMusic {
+  width: 1100px;
+}
+.discoverMusic .text1 {
+  width: 1100px;
+  border-bottom: 1px solid #e6e7ea;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.discoverMusic .recommendSLPic {
+  height: 510px;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.discoverMusic .recommendSLPic .item .item_name {
+  width: 160px;
+}
+.discoverMusic .text2 {
+  width: 1100px;
+  border-bottom: 1px solid #e6e7ea;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.discoverMusic .dujiaFS {
+  margin-top: 10px;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+}

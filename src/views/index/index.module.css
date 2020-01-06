@@ -1,0 +1,32 @@
+.content {
+  display: flex;
+}
+.content .leftMenu {
+  height: 700px;
+  width: 256px;
+  border-right: 1px solid #e6e7ea;
+}
+.content .leftMenu .tuijian_text {
+  padding: 10px;
+  font-size: 15px;
+}
+.content .leftMenu .menu :global .ant-menu-item-selected {
+  background-color: #e6e7ea;
+  color: #000000;
+  border-left: 3px solid red;
+}
+.content .leftMenu .menu :global .ant-menu-item-active {
+  color: #000000;
+  background-color: #e6e7ea;
+}
+.content .leftMenu .menu :global .ant-menu-item::after {
+  border-right: 0px solid red;
+}
+.content .right {
+  width: 1300px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+}

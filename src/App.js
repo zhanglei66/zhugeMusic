@@ -1,13 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import zhugeyunmusic from './static/zhugeyunmusic.png'
-import './App.css';
+import './App.scss';
+import Index from './views/index/index'
 
 function App() {
 	return (
-		<div class="top">
-			<img src={zhugeyunmusic} width="30px" height="30px" alt=""/>
-			<div>诸葛云音乐</div>
+		<div>
+			<div className="top">
+				<div className="left">
+					<img src={zhugeyunmusic} width="20px" height="20px" alt=""/>
+				</div>
+				<div className="center">诸葛云音乐</div>
+			</div>
+			<div>
+				<Index></Index>
+			</div>
 		</div>
 		// <div className="App">
 		//   <header className="App-header">
