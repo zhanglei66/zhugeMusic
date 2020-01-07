@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './index.module.less'
 import request from '../../util/index'
-import { Avatar, Carousel, Menu, Icon } from 'antd'
+import { Avatar, Menu, Icon } from 'antd'
 
 class DiscoverMusic extends React.Component {
     constructor(props) {

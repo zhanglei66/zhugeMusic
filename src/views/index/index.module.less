@@ -1,40 +1,88 @@
-.content{
+.all {
     display: flex;
-    .leftMenu {
-        height: 700px;
-        width: 256px;
-        border-right: 1px solid rgb(230, 231, 234);
-        .tuijian_text {
-            padding: 10px;
-            font-size: 15px;
+    flex-direction: column;
+    .top {
+        width: 100%;
+        height: 50px;
+        background-color: rgb(198, 47, 47, );
+        display: flex;
+        align-items: center;
+        .left {
+            width: 30px;
+            height: 30px;
+            margin-left: 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
         }
-        .menu {
+        .center {
+            font-size: 20px;
+            color: white;
+            margin-left: 10px;
+        }
+        .input {
+            width: 250px;
+            margin-left: 100px;
+            .inputIcon {
+                color: rgb(197, 109, 109);
+            }
             :global {
-                .ant-menu-item-selected {
-                    background-color: rgb(230, 231, 234);
-                    color: rgb(0, 0, 0);
-                    border-left: 3px solid red;
-                }
-                .ant-menu-item-active {
-                    color: rgb(0, 0, 0);
-                    background-color: rgb(230, 231, 234);
-                }
-                .ant-menu-item::after {
-                    border-right: 0px solid red;
+                .ant-input {
+                    background-color: rgb(168, 40, 40);
+                    border-radius: 20px;
+                    border: 1px solid rgb(198, 47, 47);
+                    font-size: 12px;
+                    color: white
                 }
             }
         }
     }
-
-    .right {
-        width: 1300px;
-        height: 700px;
+    .content{
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow: auto;
+        .top {
+            width: 100%;
+            height: 50px;
+            background-color: rgb(198, 47, 47, );
+            display: flex;
+            align-items: center;
+        }
+        .leftMenu {
+            height: 700px;
+            width: 256px;
+            border-right: 1px solid rgb(230, 231, 234);
+            .tuijian_text {
+                padding: 10px;
+                font-size: 15px;
+            }
+            .menu {
+                :global {
+                    .ant-menu-item-selected {
+                        background-color: rgb(230, 231, 234);
+                        color: rgb(0, 0, 0);
+                        border-left: 3px solid red;
+                    }
+                    .ant-menu-item-active {
+                        color: rgb(0, 0, 0);
+                        background-color: rgb(230, 231, 234);
+                    }
+                    .ant-menu-item::after {
+                        border-right: 0px solid red;
+                    }
+                }
+            }
+        }
+
+        .right {
+            width: 1300px;
+            height: 700px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: auto;
+        }
     }
 }
-
 
 

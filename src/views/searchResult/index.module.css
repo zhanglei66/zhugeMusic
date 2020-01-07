@@ -1,0 +1,45 @@
+.searchResult {
+  width: 100%;
+}
+.searchResult .tableClass {
+  width: 100%;
+  margin-top: 30px;
+}
+.searchResult .title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
+}
+.searchResult .title .title1 {
+  flex: 1;
+  text-align: center;
+  font-size: 25px;
+}
+.searchResult .oushu {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5px;
+}
+.searchResult .oushu .songMsg {
+  flex: 1;
+  text-align: center;
+}
+.searchResult .jishu {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5px;
+  background-color: #f5f5f7;
+}
+.searchResult .jishu .songMsg {
+  flex: 1;
+  text-align: center;
+}
+.searchResult .oushu:hover {
+  background-color: #ebeced;
+}
+.searchResult .jishu:hover {
+  background-color: #ebeced;
+}

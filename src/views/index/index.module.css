@@ -1,28 +1,75 @@
-.content {
+.all {
+  display: flex;
+  flex-direction: column;
+}
+.all .top {
+  width: 100%;
+  height: 50px;
+  background-color: #c62f2f;
+  display: flex;
+  align-items: center;
+}
+.all .top .left {
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.all .top .center {
+  font-size: 20px;
+  color: white;
+  margin-left: 10px;
+}
+.all .top .input {
+  width: 250px;
+  margin-left: 100px;
+}
+.all .top .input .inputIcon {
+  color: #c56d6d;
+}
+.all .top .input :global .ant-input {
+  background-color: #a82828;
+  border-radius: 20px;
+  border: 1px solid #c62f2f;
+  font-size: 12px;
+  color: white;
+}
+.all .content {
   display: flex;
 }
-.content .leftMenu {
+.all .content .top {
+  width: 100%;
+  height: 50px;
+  background-color: #c62f2f;
+  display: flex;
+  align-items: center;
+}
+.all .content .leftMenu {
   height: 700px;
   width: 256px;
   border-right: 1px solid #e6e7ea;
 }
-.content .leftMenu .tuijian_text {
+.all .content .leftMenu .tuijian_text {
   padding: 10px;
   font-size: 15px;
 }
-.content .leftMenu .menu :global .ant-menu-item-selected {
+.all .content .leftMenu .menu :global .ant-menu-item-selected {
   background-color: #e6e7ea;
   color: #000000;
   border-left: 3px solid red;
 }
-.content .leftMenu .menu :global .ant-menu-item-active {
+.all .content .leftMenu .menu :global .ant-menu-item-active {
   color: #000000;
   background-color: #e6e7ea;
 }
-.content .leftMenu .menu :global .ant-menu-item::after {
+.all .content .leftMenu .menu :global .ant-menu-item::after {
   border-right: 0px solid red;
 }
-.content .right {
+.all .content .right {
   width: 1300px;
   height: 700px;
   display: flex;
