@@ -77,3 +77,72 @@
   align-items: center;
   overflow: auto;
 }
+.all .compAudio {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+  border-top: 1px solid #e1e1e2;
+  background-color: #f6f6f8;
+}
+.all .compAudio .shangyishou {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background-image: url('../../static/shangyishou.png');
+  background-size: 100% 100%;
+  margin-left: 30px;
+  cursor: pointer;
+}
+.all .compAudio .bofang {
+  height: 45px;
+  width: 45px;
+  border-radius: 22.5px;
+  background-image: url('../../static/bofang.png');
+  background-size: 100% 100%;
+  margin-left: 30px;
+  cursor: pointer;
+}
+.all .compAudio .zanting {
+  height: 45px;
+  width: 45px;
+  border-radius: 22.5px;
+  background-image: url('../../static/zanting.png');
+  background-size: 100% 100%;
+  margin-left: 30px;
+  cursor: pointer;
+}
+.all .compAudio .xiayishou {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background-image: url('../../static/xiayishou.png');
+  background-size: 100% 100%;
+  margin-left: 30px;
+  cursor: pointer;
+}
+.all .compAudio .progress {
+  margin-left: 50px;
+}
+.all .compAudio .songTime {
+  margin-left: 20px;
+  width: 10px;
+}
+.all .compAudio :global .ant-progress-inner {
+  background-color: #e6e6e8;
+  width: 1000px;
+}
+.all .compAudio :global .ant-progress-outer {
+  width: 1000px;
+}
+.all .compAudio :global .ant-progress-line {
+  width: 1000px;
+}
+.all .compAudio :global .ant-progress-bg {
+  background-color: #d81e06;
+}
+.all .music {
+  display: none;
+}

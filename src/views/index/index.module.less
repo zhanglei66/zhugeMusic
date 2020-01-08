@@ -83,6 +83,78 @@
             overflow: auto;
         }
     }
+
+    .compAudio {
+        display: flex;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        height: 60px;
+        width: 100%;
+        border-top: 1px solid rgb(225, 225, 226);
+        background-color: rgb(246, 246, 248);
+        .shangyishou {
+            height: 40px;
+            width: 40px;
+            border-radius: 20px;
+            background-image: url('../../static/shangyishou.png');
+            background-size: 100% 100%;
+            margin-left: 30px;
+            cursor: pointer;
+        }
+        .bofang {
+            height: 45px;
+            width: 45px;
+            border-radius: 22.5px;
+            background-image: url('../../static/bofang.png');
+            background-size: 100% 100%;
+            margin-left: 30px;
+            cursor: pointer;
+        }
+        .zanting {
+            height: 45px;
+            width: 45px;
+            border-radius: 22.5px;
+            background-image: url('../../static/zanting.png');
+            background-size: 100% 100%;
+            margin-left: 30px;
+            cursor: pointer;
+        }
+        .xiayishou {
+            height: 40px;
+            width: 40px;
+            border-radius: 20px;
+            background-image: url('../../static/xiayishou.png');
+            background-size: 100% 100%;
+            margin-left: 30px;
+            cursor: pointer;
+        }
+        .progress {
+            margin-left: 50px;
+        }
+        .songTime {
+            margin-left: 20px;
+            width: 10px;
+        }
+        :global {
+            .ant-progress-inner {
+                background-color: rgb(230, 230, 232);
+                width: 1000px;
+            }
+            .ant-progress-outer {
+                width: 1000px;
+            }
+            .ant-progress-line {
+                width: 1000px;
+            }
+            .ant-progress-bg {
+                background-color: rgb(216, 30, 6);
+            }
+        }
+    }
+    .music {
+        display: none;
+    }
 }
 
 

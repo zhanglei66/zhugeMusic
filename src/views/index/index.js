@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu, Icon, Input } from 'antd'
+import { Menu, Icon, Input, Progress } from 'antd'
 import styles from './index.module.less'
 import {
     BrowserRouter as Router,
@@ -11,12 +11,18 @@ import TopMenu from '../topMenu/index'
 import PrivateFM from '../privateFM/index'
 import SearchResult from '../searchResult/index'
 import zhugeyunmusic from '../../static/zhugeyunmusic.png'
+import request from '../../util/index'
 
 class Sider extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            search: ''
+            search: '',
+            songUrl: '',
+            controlState: '',
+            time: '',
+            percent: 0,
+            interval: ''
         };
     }
 
@@ -33,6 +39,18 @@ class Sider extends React.Component {
     };
 
     render() {
+        let controller
+        let time
+        if(this.state.controlState === 'play') {
+            controller = <div className={styles.zanting} onClick={()=>this.controlAudio()}></div>
+        } else {
+            controller = <div className={styles.bofang} onClick={()=>this.controlAudio()}></div>
+        }
+        if(this.state.time !== '') {
+            time = <div className={styles.songTime}>{this.state.time}</div>
+        } else {
+            time = <div className={styles.songTime}></div>
+        }
         return (
             <Router>
                 <div className={styles.all}>
@@ -40,7 +58,9 @@ class Sider extends React.Component {
                         <div className={styles.left}>
                             <img src={zhugeyunmusic} width="20px" height="20px" alt="" />
                         </div>
-                        <div className={styles.center}>诸葛云音乐</div>
+                        <Link to="/">
+                            <div className={styles.center}>诸葛云音乐</div>
+                        </Link>
                         <div className={styles.input}>
                             <Input id="input" size="small" suffix={
                                 <Link to="/searchResult">
@@ -83,22 +103,89 @@ class Sider extends React.Component {
                                     <PrivateFM />
                                 </Route>
                                 <Route path='/searchResult'>
-                                    <SearchResult keywords={this.state.search} />
+                                    <SearchResult keywords={this.state.search} pfn={this.fn.bind(this)}/>
                                 </Route>
                             </Switch>
                         </div>
                     </div>
+
+                    <div className={styles.compAudio}>
+                        <div className={styles.shangyishou}></div>
+                        {controller}
+                        <div className={styles.xiayishou}></div>
+                        <Progress className={styles.progress} percent={this.state.percent} showInfo={false} />
+                        {time}
+                    </div>
+                    <audio id="music" className={styles.music} src={this.state.songUrl} autoPlay controls></audio>
                 </div>
             </Router>
         );
     }
 
     clickSearch() {
-        console.log(document.getElementById('input').value)
         let val = document.getElementById('input').value
         this.setState({
             search: val
         })
+    }
+
+    fn(id) {
+        let that = this
+        let _url = 'song/url?id='+id
+        request.get(_url).then(res => {
+            if(res.code === 200) {
+                this.setState({
+                    songUrl: res.data[0].url,
+                    controlState: 'play'
+                })
+            }
+        })
+        let audio = document.getElementById('music')
+        audio.addEventListener("loadeddata", function() {
+            let minutes = parseInt(audio.duration/60)
+            let records = parseInt(audio.duration%60)
+            if(minutes<10) {
+                minutes = '0'+minutes
+            }
+            if(records<10) {
+                records = '0'+records
+            }
+            let time = minutes+':'+records
+            that.setState({
+                time: time
+            })
+            that.state.interval = setInterval(() => {
+                let percent = that.state.percent
+                percent+=1/audio.duration*(100)
+                that.setState({
+                    percent: percent
+                })
+            }, 1000);
+        })
+    }
+
+    controlAudio() {
+        let that = this
+        let audio = document.getElementById('music')
+        if(audio.paused) {
+            audio.play()
+            this.setState({
+                controlState: 'play'
+            })
+            that.state.interval = setInterval(() => {
+                let percent = that.state.percent
+                percent+=1/audio.duration*(100)
+                that.setState({
+                    percent: percent
+                })
+            }, 1000);
+        } else {
+            audio.pause()
+            this.setState({
+                controlState: 'pause'
+            })
+            clearInterval(this.state.interval)
+        }
     }
 }
 

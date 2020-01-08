@@ -22,7 +22,8 @@ class SearchResult extends React.Component {
                     dataIndex: 'album.name'
                 }
             ],
-            data: []
+            data: [],
+            songUrl: ''
         };
     }
     componentDidMount() {
@@ -42,27 +43,28 @@ class SearchResult extends React.Component {
         })
     }
     componentWillReceiveProps(nextProps) {
-        if(this.props.keywords === '') {
-            return
-        }
-        this.setState({
-            keywords: nextProps.keywords
-        })
-        let _url = 'search?keywords='+nextProps.keywords
-        request.get(_url).then(res => {
-            if( res.code === 200) {
-                this.setState({
-                    data: res.result.songs
-                })
+        if(this.state.keywords !== nextProps.keywords) {
+            if(this.props.keywords === '') {
+                return
             }
-        })
+            this.setState({
+                keywords: nextProps.keywords
+            })
+            let _url = 'search?keywords='+nextProps.keywords
+            request.get(_url).then(res => {
+                if( res.code === 200) {
+                    this.setState({
+                        data: res.result.songs
+                    })
+                }
+            })
+        }
     }
     render() {
         // let columns = this.state.columns
         // let data = this.state.data
         let songlist = this.state.data
         let songlistDom = []
-        console.log(songlist)
         songlist.forEach((item, index) => {
             let classN
             if(index%2 === 0) {
@@ -70,8 +72,9 @@ class SearchResult extends React.Component {
             } else {
                 classN = styles.jishu
             }
+            let id = item.id
             songlistDom.push(
-                <div className={classN} key={index}>
+                <div onClick={this.passFather.bind(this, id)} className={classN} key={index}>
                     <div className={styles.songMsg}>{item.name}</div>
                     <div className={styles.songMsg}>{item.artists[0].name}</div>
                     <div className={styles.songMsg}>{item.album.name}</div>
@@ -91,6 +94,22 @@ class SearchResult extends React.Component {
                 {songlistDom}
             </div>
         );
+    }
+    // startMusic(e, id) {
+    //     let _url = 'song/url?id='+id
+    //     request.get(_url).then(res => {
+    //         if(res.code === 200) {
+    //             this.setState({
+    //                 songUrl: res.data[0].url
+    //             })
+    //         }
+    //     })
+    //     this.passFather.bind(this, this.state.songUrl)
+    // }
+    passFather(id) {
+        console.log(id)
+        console.log('shangmianshierzi')
+        this.props.pfn(id)
     }
 }
 
