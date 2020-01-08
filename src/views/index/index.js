@@ -154,6 +154,12 @@ class Sider extends React.Component {
             that.setState({
                 time: time
             })
+            if(that.state.interval !== '') {
+                clearInterval(that.state.interval)
+                that.setState({
+                    percent: 0
+                })
+            }
             that.state.interval = setInterval(() => {
                 let percent = that.state.percent
                 percent+=1/audio.duration*(100)
