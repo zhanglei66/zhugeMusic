@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './index.module.less'
 import request from '../../util/index'
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 class DiscoverMusic extends React.Component {
     constructor(props) {

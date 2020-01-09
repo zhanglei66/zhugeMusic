@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './index.module.less'
 import request from '../../util/index'
 import { Button } from 'antd'
+import { Link } from "react-router-dom"
 
 class DiscoverMusic extends React.Component {
     constructor(props) {
@@ -41,7 +42,9 @@ class DiscoverMusic extends React.Component {
         playlists.forEach( (item, index) => {
             playlistsDom.push(
                 <div key={index} className={styles.item}>
-                    <img height="200px" width="200px" src={item.coverImgUrl} alt="" />
+                    <Link to={'/playList?id='+item.id}>
+                        <img height="200px" width="200px" src={item.coverImgUrl} alt="" />
+                    </Link>
                     <div className={styles.item_name}>{item.name}</div>
                 </div>
             )
