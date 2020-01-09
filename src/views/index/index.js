@@ -85,13 +85,13 @@ class Sider extends React.Component {
                             >
                                 <Menu.Item key="1">
                                     <Link to="/">
-                                        <Icon type="mail" />
+                                        <Icon type="customer-service" />
                                         发现音乐
                                     </Link>
                                 </Menu.Item>
                                 <Menu.Item key="2">
                                     <Link to="/songlist">
-                                        <Icon type="calendar" />
+                                        <Icon type="profile" />
                                         歌单
                                     </Link>
                                 </Menu.Item>
@@ -103,7 +103,7 @@ class Sider extends React.Component {
                                 </Menu.Item>
                                 <Menu.Item key="4">
                                     <Link to="/privateFM">
-                                        <Icon type="calendar" />
+                                        <Icon type="wifi" />
                                         私人FM
                                     </Link>
                                 </Menu.Item>
