@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './index.module.less'
 import request from '../../util/index'
-import { Avatar, Menu, Icon } from 'antd'
+import { Link } from "react-router-dom";
 
 class DiscoverMusic extends React.Component {
     constructor(props) {
@@ -36,7 +36,9 @@ class DiscoverMusic extends React.Component {
         recommendSL.forEach((item, index) => {
             arrdom.push(
                 <div className={styles.item} key={index}>
-                    <img height="200px" width="200px" src={item.picUrl} alt="" />
+                    <Link to={'/playList?id='+item.id}>
+                        <img height="200px" width="200px" src={item.picUrl} alt="" />
+                    </Link>
                     <div className={styles.item_name}>{item.name}</div>
                 </div>
             )

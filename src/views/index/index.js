@@ -7,9 +7,12 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import TopMenu from '../topMenu/index'
 import PrivateFM from '../privateFM/index'
 import SearchResult from '../searchResult/index'
+import PlayList from '../playList/index'
+import DiscoverMusic from '../discoverMusic/index'
+import SongList from '../songList/index'
+import RankList from '../rankList/index'
 import zhugeyunmusic from '../../static/zhugeyunmusic.png'
 import request from '../../util/index'
 
@@ -84,26 +87,47 @@ class Sider extends React.Component {
                                     <Link to="/">
                                         <Icon type="mail" />
                                         发现音乐
-                                </Link>
+                                    </Link>
                                 </Menu.Item>
                                 <Menu.Item key="2">
+                                    <Link to="/songlist">
+                                        <Icon type="calendar" />
+                                        歌单
+                                    </Link>
+                                </Menu.Item>
+                                <Menu.Item key="3">
+                                    <Link to="/rankList">
+                                        <Icon type="calendar" />
+                                        排行榜
+                                    </Link>
+                                </Menu.Item>
+                                <Menu.Item key="4">
                                     <Link to="/privateFM">
                                         <Icon type="calendar" />
                                         私人FM
-                                </Link>
+                                    </Link>
                                 </Menu.Item>
                             </Menu>
                         </div>
                         <div className={styles.right}>
                             <Switch>
                                 <Route exact path="/">
-                                    <TopMenu />
+                                    <DiscoverMusic />
+                                </Route>
+                                <Route path="/songList">
+                                    <SongList />
+                                </Route>
+                                <Route path="/rankList">
+                                    <RankList />
                                 </Route>
                                 <Route path="/privateFM">
                                     <PrivateFM />
                                 </Route>
                                 <Route path='/searchResult'>
                                     <SearchResult keywords={this.state.search} pfn={this.fn.bind(this)}/>
+                                </Route>
+                                <Route path='/playList'>
+                                    <PlayList pfn={this.fn.bind(this)}></PlayList>
                                 </Route>
                             </Switch>
                         </div>
