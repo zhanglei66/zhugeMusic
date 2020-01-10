@@ -30,6 +30,56 @@
   justify-content: space-between;
   margin-bottom: 20px;
 }
+.discoverMusic .text3 {
+  width: 1100px;
+  border-bottom: 1px solid #e6e7ea;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.discoverMusic .newMusic {
+  display: flex;
+}
+.discoverMusic .newMusic .newMusic1 {
+  margin-top: 20px;
+  flex: 1;
+}
+.discoverMusic .newMusic .newMusic2 {
+  margin-top: 20px;
+  flex: 1;
+}
+.discoverMusic .newMusic .jishu {
+  display: flex;
+  align-items: center;
+  height: 75px;
+  background-color: #f5f5f7;
+}
+.discoverMusic .newMusic .jishu .right .songName {
+  font-size: 20px;
+  padding-bottom: 10px;
+  margin-left: 20px;
+}
+.discoverMusic .newMusic .jishu .right .artistName {
+  margin-left: 20px;
+}
+.discoverMusic .newMusic .oushu {
+  display: flex;
+  align-items: center;
+  height: 75px;
+}
+.discoverMusic .newMusic .oushu .right .songName {
+  font-size: 20px;
+  padding-bottom: 10px;
+  margin-left: 20px;
+}
+.discoverMusic .newMusic .oushu .right .artistName {
+  margin-left: 20px;
+}
+.discoverMusic .newMusic .oushu:hover {
+  background-color: #ebeced;
+}
+.discoverMusic .newMusic .jishu:hover {
+  background-color: #ebeced;
+}
 .discoverMusic .beian {
   background-color: #f2f2f2;
   height: 200px;
@@ -37,6 +87,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
 }
 .discoverMusic .beian .a {
   margin-top: 20px;

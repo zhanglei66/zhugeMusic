@@ -112,7 +112,7 @@ class Sider extends React.Component {
                         <div className={styles.right}>
                             <Switch>
                                 <Route exact path="/">
-                                    <DiscoverMusic />
+                                    <DiscoverMusic pfn={this.fn.bind(this)}/>
                                 </Route>
                                 <Route path="/songList">
                                     <SongList />

@@ -1,7 +1,8 @@
 import React from 'react'
-import { Table } from 'antd'
+import { Spin } from 'antd'
 import styles from './index.module.less'
 import request from '../../util/index'
+import Render from '../../component/Render/index'
 
 class SearchResult extends React.Component {
     constructor(props) {
@@ -23,38 +24,40 @@ class SearchResult extends React.Component {
                 }
             ],
             data: [],
-            songUrl: ''
+            songUrl: '',
+            loading: true
         };
     }
-    componentDidMount() {
+    async componentDidMount() {
         if(this.props.keywords === '') {
             return
         }
-        this.setState({
-            keywords: this.props.keywords
-        })
         let _url = 'search?keywords='+this.props.keywords
-        request.get(_url).then(res => {
+        await request.get(_url).then(res => {
             if( res.code === 200) {
                 this.setState({
-                    data: res.result.songs
+                    data: res.result.songs,
+                    loading: false,
+                    keywords: this.props.keywords
                 })
             }
         })
     }
-    componentWillReceiveProps(nextProps) {
-        if(this.state.keywords !== nextProps.keywords) {
-            if(this.props.keywords === '' || nextProps.keywords === '') {
+    async componentWillReceiveProps(nextProps) {
+        if( this.state.keywords !== nextProps.keywords ) {
+            if(nextProps.keywords === '') {
                 return
             }
             this.setState({
-                keywords: nextProps.keywords
+                keywords: nextProps.keywords,
+                loading: true
             })
             let _url = 'search?keywords='+nextProps.keywords
-            request.get(_url).then(res => {
+            await request.get(_url).then(res => {
                 if( res.code === 200) {
                     this.setState({
-                        data: res.result.songs
+                        data: res.result.songs,
+                        loading: false
                     })
                 }
             })
@@ -81,17 +84,25 @@ class SearchResult extends React.Component {
                 </div>
             )
         })
+
         return (
             <div className={styles.searchResult}>
                 {/* <div className={styles.tableClass}>
                     <Table width="30%" align="center" columns={columns} dataSource={data} />
                 </div> */}
-                <div className={styles.title}>
-                    <div className={styles.title1}>音乐标题</div>
-                    <div className={styles.title1}>歌手</div>
-                    <div className={styles.title1}>专辑</div>
-                </div>
-                {songlistDom}
+                <Render if={this.state.loading === false}>
+                    <div className={styles.title}>
+                        <div className={styles.title1}>音乐标题</div>
+                        <div className={styles.title1}>歌手</div>
+                        <div className={styles.title1}>专辑</div>
+                    </div>
+                    {songlistDom}
+                </Render>
+                <Render if={this.state.loading === true}>
+                    <div className={styles.zhezhao}>
+                        <Spin size="large" tip="Loading"/>
+                    </div>
+                </Render>
             </div>
         );
     }
@@ -106,6 +117,7 @@ class SearchResult extends React.Component {
     //     })
     //     this.passFather.bind(this, this.state.songUrl)
     // }
+
     passFather(id) {
         console.log(id)
         console.log('shangmianshierzi')
