@@ -64,6 +64,10 @@ class DiscoverMusic extends React.Component {
                 <div className={styles.dujiaFS}>
                     {dujiaFSDom}
                 </div>
+                <div className={styles.beian}>
+                    <a className={styles.a} href="http://beian.miit.gov.cn">陕ICP备20000491号</a>
+                    <div className={styles.div}>仅个人用于学习用途，并无商业行为</div>
+                </div>
             </div>
         )
     }

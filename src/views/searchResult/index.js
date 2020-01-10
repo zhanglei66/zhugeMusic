@@ -44,7 +44,7 @@ class SearchResult extends React.Component {
     }
     componentWillReceiveProps(nextProps) {
         if(this.state.keywords !== nextProps.keywords) {
-            if(this.props.keywords === '') {
+            if(this.props.keywords === '' || nextProps.keywords === '') {
                 return
             }
             this.setState({

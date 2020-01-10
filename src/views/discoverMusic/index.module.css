@@ -28,5 +28,20 @@
   height: 200px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+.discoverMusic .beian {
+  background-color: #f2f2f2;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.discoverMusic .beian .a {
+  margin-top: 20px;
+  font-size: 20px;
+}
+.discoverMusic .beian .div {
+  margin-top: 10px;
 }
